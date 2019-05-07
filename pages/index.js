@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Link } from '../routes';
+import { Link } from 'routes';
 
 import s from './style.scss';
 

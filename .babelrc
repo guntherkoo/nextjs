@@ -8,6 +8,7 @@
 				"alias": {
 					"components": "./components",
 					"pages": "./pages",
+					"routes": "./routes",
 					"styles": "./styles"
 				}
 			}
