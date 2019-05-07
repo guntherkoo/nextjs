@@ -14,9 +14,9 @@ app
 		const server = express();
 		server.use(compression());
 
-		// server.get('/favicon.ico', (req, res, next) => (
-		// 	res.status(200).sendFile('favicon.ico', {root: __dirname + '/static/'})
-		// ));
+		server.get('/favicon.ico', (req, res, next) => (
+			res.status(200).sendFile('favicon.ico', {root: __dirname + '/static/'})
+		));
 
 	    //server start with next routing
 	    server.use(handler).listen(3001, (err) => {
