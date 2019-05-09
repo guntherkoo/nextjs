@@ -41,7 +41,7 @@ class Index extends Component {
 				    <button onClick={this.decrement}>-1</button>
 				</h2>
 				<button onClick={this.toggle}>
-					{tap ? 'Toggle On' : 'Toggle Off'}
+					{tap ? 'Toggle Off' : 'Toggle On'}
 				</button>
 				{tap && 
 					<h2>
