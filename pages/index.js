@@ -1,23 +1,69 @@
 import { Component } from 'react';
-import { Link } from 'routes';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { toggleTap, incrementCount, decrementCount } from '../redux/actions';
 
-import s from './style.scss';
+import GlobalStyles from 'styles/styles.scss';
 
-class App extends Component {
+class Index extends Component {
+	static getInitialProps ({ reduxStore, req }) {
+		const isServer = !!req
+
+		return {}
+	}
+
+	toggle = () => {
+		const { toggleTap } = this.props
+		toggleTap()
+	}
+
+	increment = () => {
+		const { incrementCount } = this.props
+		incrementCount()
+	}
+
+	decrement = () => {
+		const { decrementCount } = this.props
+		decrementCount()
+	}
+
 	render() {
+		const { tap, count } = this.props;
+
 		return (
-			<section className={s('container')}>
+			<section>
 				<h1>
 					This is my Next.js Boilerplate.
 				</h1>
-				<Link route='about'>
-					<a>
-						Go to About Me
-					</a>
-				</Link>
+				<h2>
+					{this.props.count}
+				    <button onClick={this.increment}>+1</button>
+				    <button onClick={this.decrement}>-1</button>
+				</h2>
+				<button onClick={this.toggle}>
+					{tap ? 'Toggle On' : 'Toggle Off'}
+				</button>
+				{tap && 
+					<h2>
+						Toggler is ON
+					</h2>
+				}
 			</section>
 		)
 	}
 }
 
-export default App;
+const mapStateToProps = state => {
+	return {
+		tap: state.tap,
+		count: state.count
+	}
+}
+
+const mapDispatchToProps = dispatch =>
+	bindActionCreators({ toggleTap, incrementCount, decrementCount }, dispatch)
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Index);

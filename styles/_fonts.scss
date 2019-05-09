@@ -1,16 +1,6 @@
-
-/*Knowledge Webfont*/
-@font-face {
-   font-family: 'knowledge-light';
-   src: url('https://static.reutersmedia.net/resources_v2/fonts/Knowledge-Light.woff') format('woff');
-   }
+/*Oswald Webfont*/
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,700');
 
 @font-face {
-   font-family: 'knowledge-regular';
-   src: url('https://static.reutersmedia.net/resources_v2/fonts/Knowledge-Regular.woff') format('woff');
-   }
-
-@font-face {
-   font-family: 'knowledge-medium';
-   src: url('https://static.reutersmedia.net/resources_v2/fonts/Knowledge-Medium.woff') format('woff');
-   }
+	font-family: 'Oswald', sans-serif;
+}
