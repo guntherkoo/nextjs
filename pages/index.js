@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { toggleTap, incrementCount, decrementCount } from '../redux/actions';
+import { Action } from 'redux-store/actions';
 
 import GlobalStyles from 'styles/styles.scss';
 
@@ -10,6 +10,10 @@ class Index extends Component {
 		const isServer = !!req
 
 		return {}
+	}
+
+	static defaultProps = {
+		count: 0
 	}
 
 	toggle = () => {
@@ -60,9 +64,19 @@ const mapStateToProps = state => {
 	}
 }
 
-const mapDispatchToProps = dispatch =>
-	bindActionCreators({ toggleTap, incrementCount, decrementCount }, dispatch)
-
+const mapDispatchToProps = dispatch => {
+	return {
+		toggleTap() {
+			dispatch(Action.toggleTap());
+		},
+		incrementCount() {
+			dispatch(Action.incrementCount());
+		},
+		decrementCount() {
+			dispatch(Action.decrementCount());
+		}
+	}
+}
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
