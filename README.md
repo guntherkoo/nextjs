@@ -2,7 +2,7 @@
 Created this boilerplate to quickly start simple web service projects with Nextjs. Ability to push to private Zeit/Now server to view site.
 
 ## Initialize Project
-- `npm install`
+- `yarn install`
 - `npm run dev`
 - Served in [localhost:3001](http://localhost:3001)
 
